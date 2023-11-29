@@ -1,0 +1,37 @@
+<ion-app>
+  <ion-menu menuId="main-menu" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <img src="/assets/logo.jpg">
+        <ion-label>
+           <h4> Xin chào {{userData?.email}}</h4>
+          <p></p>
+        </ion-label>
+      </div>
+
+      <ion-list class="menu-items" lines="none">
+        <ion-item routerLink="/tabs/tab1">
+          <ion-icon name="home-outline"></ion-icon>
+          Trang chủ
+        </ion-item>
+        <ion-item routerLink="/about-us">
+          <ion-icon name="book-outline"></ion-icon>
+          Giới thiệu
+        </ion-item>
+        <ion-item routerLink="/faq">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          FAQ
+        </ion-item>
+        <ion-item  (click)="authService.confirmSignOut()">
+            <ion-icon name="log-out-outline"></ion-icon>
+          Đăng xuất
+      </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
+

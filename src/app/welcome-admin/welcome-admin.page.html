@@ -1,0 +1,63 @@
+
+
+<ion-content>
+  <div class="main_content_div">
+    <ion-buttons slot="start" class="menu_button">
+      <ion-menu-button color="danger"></ion-menu-button>
+    </ion-buttons>
+
+  <div class="user_div">
+    <div class="first_div">
+      <ion-label class="username">Hi, {{ user.displayName }}</ion-label>
+    </div>
+    <div class="user_back">
+      <img src="assets/admin.png"/>
+    </div>
+  </div>
+
+  <div class="content_div">
+    <div class="test_details">
+      <ion-grid fixed>
+        <ion-row>
+
+            <div class="flex_div">
+              <div class="round_div">
+                <img src="assets/email.png"/>
+              </div>
+
+              <div class="details">
+                <ion-label class="bold_lbl">Email: </ion-label>
+                <ion-label class="small_lbl">{{ user.email }}</ion-label>
+              </div>
+            </div>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="list_div" routerLink="/list-users">
+      <ion-label><b>Quản lý tài khoản</b></ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+
+    <div class="list_div" routerLink="/list-orders">
+      <ion-label><b>Quản lý đơn hàng</b></ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="list_div" routerLink="/listcategory">
+      <ion-label><b>Quản lý danh mục</b></ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+    <div class="list_div" routerLink="/listproducts">
+      <ion-label><b>Quản lý sản phẩm</b></ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+
+    <div class="list_div" (click)="authService.confirmSignOut()">
+      <ion-label><b>Đăng xuất</b></ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+  </div>
+</div>
+
+</ion-content>
