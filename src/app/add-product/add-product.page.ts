@@ -12,9 +12,10 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
   styleUrls: ['./add-product.page.scss'],
 })
 export class AddProductPage implements OnInit {
-  product = {} as Product;
   title = "cloudsSorage";
   selectedFile: File = null;
+  categories: any;
+  product = {} as Product;
   fb;
   downloadURL: Observable<string>;
 
@@ -23,12 +24,13 @@ export class AddProductPage implements OnInit {
     private storage: AngularFireStorage,
     private toastCtrl: ToastController,
     private navCtrl: NavController,
+    private firestore: AngularFirestore,
     private loadingCtrl: LoadingController,) { }
 
   ngOnInit() {
+    this.getCategories();
+    // this.product.category=this.categories[0].name;
   }
-
-
   onFileSelected(event) {
     var n = Date.now();
     const file = event.target.files[0];
@@ -121,6 +123,31 @@ export class AddProductPage implements OnInit {
     duration: 3000
     })
     .then(toastData => toastData.present());
+    }
+
+    async getCategories() {
+        let loader = await this.loadingCtrl.create({
+            message: 'Please wait...'
+        });
+        loader.present();
+        try {
+            this.firestore
+                .collection('categories')
+                .snapshotChanges()
+                .subscribe((data) => {
+                    this.categories = data.map((e) => {
+                        return {
+                            id: e.payload.doc.id,
+                            name: e.payload.doc.data()['name'],
+                            image: e.payload.doc.data()['image']
+                        };
+                    });
+                    this.product.category = this.categories?.[0]?.name || ''; // Set to the first category name or an empty string
+                    loader.dismiss();
+                });
+        } catch (e) {
+            this.showToast(e);
+        }
     }
 
 

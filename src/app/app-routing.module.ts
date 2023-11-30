@@ -135,38 +135,7 @@ const routes: Routes = [
     path: 'search-product-admin',
     loadChildren: () => import('./search-product-admin/search-product-admin.module').then( m => m.SearchProductAdminPageModule)
   },
-  {
-    path: 'skincare',
-    loadChildren: () => import('./skincare/skincare.module').then( m => m.SkincarePageModule)
-  },
-  {
-    path: 'skincare',
-    loadChildren: () => import('./skincare/skincare.module').then( m => m.SkincarePageModule)
-  },
-  {
-    path: 'haircare',
-    loadChildren: () => import('./haircare/haircare.module').then( m => m.HaircarePageModule)
-  },
-  {
-    path: 'moisturizer',
-    loadChildren: () => import('./moisturizer/moisturizer.module').then( m => m.MoisturizerPageModule)
-  },
-  {
-    path: 'sunscreen',
-    loadChildren: () => import('./sunscreen/sunscreen.module').then( m => m.SunscreenPageModule)
-  },
-  {
-    path: 'conditioner',
-    loadChildren: () => import('./conditioner/conditioner.module').then( m => m.ConditionerPageModule)
-  },
-  {
-    path: 'hairoil',
-    loadChildren: () => import('./hairoil/hairoil.module').then( m => m.HairoilPageModule)
-  },
-  {
-    path: 'makeup',
-    loadChildren: () => import('./makeup/makeup.module').then( m => m.MakeupPageModule)
-  },
+
   {
     path: 'listcategory',
     loadChildren: () => import('./listcategory/listcategory.module').then(m => m.ListcategoryPageModule)

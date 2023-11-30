@@ -27,14 +27,7 @@
     <ion-item style="border-radius: 10px;">
       <ion-label>Category</ion-label>
       <ion-select value="General" okText="Okay" [(ngModel)]="product.category" cancelText="Dismiss">
-        <ion-select-option *ngFor="c in categories" value="c.name">{{c.name}}</ion-select-option>
-<!--        <ion-select-option value="Haircare">Haircare</ion-select-option>-->
-<!--        <ion-select-option value="Moisturizer">Moisturizer</ion-select-option>-->
-<!--        <ion-select-option value="Sunscreen">Sunscreen</ion-select-option>-->
-<!--        <ion-select-option value="Conditioner">Conditioner</ion-select-option>-->
-<!--        <ion-select-option value="Shampoo">Shampoo</ion-select-option>-->
-<!--        <ion-select-option value="Hair oil">Hair oil</ion-select-option>-->
-<!--        <ion-select-option value="Make Up">Make Up</ion-select-option>-->
+        <ion-select-option *ngFor="let c of categories" value="{{c.name}}">{{c.name}}</ion-select-option>
       </ion-select>
     </ion-item>
     <br>

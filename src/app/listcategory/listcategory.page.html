@@ -1,0 +1,47 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-button  slot="start" fill="clear" routerLink="/welcome-admin">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <h4 class="ion-text-center">Danh mục</h4>
+    <ion-buttons slot="end">
+
+      <ion-fab-button color="orange" [routerLink]="['/add-category']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="title">Danh mục sản phẩm <ion-icon name="file-tray-stacked-outline"></ion-icon></h1>
+
+  <div class="order-items">
+    <ion-card mode="ios" *ngFor="let c of categories">
+      <ion-card-content>
+        <div class="item-img">
+          <img src='{{ c.image }}' />
+        </div>
+        <div class="item-info ion-text-center">
+          <p>{{ c.name }}</p>
+        </div>
+      </ion-card-content>
+      <ion-toolbar>
+        <ion-row>
+          <ion-col size="6" class="ion-text-center del">
+            <ion-button fill="clear" color="dark" (click)="deletePost(c.id)">Delete</ion-button>
+          </ion-col>
+          <ion-col size="6" class="ion-text-center edit">
+            <ion-button fill="clear" color="dark" [routerLink]="['/edit-category-admin', c.id]">Edit</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+
+</ion-footer>

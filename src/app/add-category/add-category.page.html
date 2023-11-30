@@ -1,0 +1,40 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-button  slot="start" fill="clear" routerLink="/listcategory">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <h4 class="ion-text-center">Thêm danh mục</h4>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+    <ion-text color="primary">
+      <p>Please fill up the Category</p>
+    </ion-text>
+
+    <ion-item style="border-radius: 10px;">
+      <ion-label position="floating">Tên</ion-label>
+      <ion-input type="text" [(ngModel)]="category.name" required></ion-input>
+    </ion-item>
+
+    <ion-item style="border-radius: 10px;">
+      <ion-label>Ảnh</ion-label>
+      <input type="file"
+             id="file"
+             #userPhoto
+             (change)="onFileSelected($event)"
+             name="filepath"
+             autocomplete="off"
+      />
+    </ion-item>
+    <br>
+
+    <ion-button expand="block" color="orange" (click)="addCategory(category)">
+      <ion-icon slot="start" name="send"></ion-icon>
+      Thêm
+    </ion-button>
+  </div>
+</ion-content>
+

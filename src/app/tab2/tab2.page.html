@@ -23,27 +23,9 @@
     <ion-popover trigger="nested-button" [dismissOnSelect]="true">
       <ng-template>
           <ion-list>
-            <ion-item [button]="true" [detail]="false" *ngFor="let c of categories" routerLink="/{{c.name.toLowerCase()}}">
+            <ion-item [button]="true" [detail]="false" *ngFor="let c of categories" (click)="filterProductsByCategory(c)">
               <ion-label>{{c.name}}</ion-label>
             </ion-item>
-<!--            <ion-item [button]="true" [detail]="false" routerLink="/haircare">-->
-<!--              <ion-label>Haircare Shampoo</ion-label>-->
-<!--            </ion-item>-->
-<!--            <ion-item [button]="true" [detail]="false" routerLink="/moisturizer">-->
-<!--              <ion-label>Moisturiser</ion-label>-->
-<!--            </ion-item>-->
-<!--            <ion-item [button]="true" [detail]="false" routerLink="/sunscreen">-->
-<!--              <ion-label>Sunscreen</ion-label>-->
-<!--            </ion-item>-->
-<!--            <ion-item [button]="true" [detail]="false" routerLink="/conditioner">-->
-<!--              <ion-label>Conditioner</ion-label>-->
-<!--            </ion-item>-->
-<!--            <ion-item [button]="true" [detail]="false" routerLink="/hairoil">-->
-<!--              <ion-label>Hair Oil</ion-label>-->
-<!--            </ion-item>-->
-<!--            <ion-item [button]="true" [detail]="false" routerLink="/makeup">-->
-<!--              <ion-label>Make Up</ion-label>-->
-<!--            </ion-item>-->
           </ion-list>
       </ng-template>
     </ion-popover>

@@ -25,7 +25,7 @@ export class LoginAdminPage implements OnInit {
   }
 
   async AdminSignIn(adminEmail: string, adminPassword: string){
-    if (adminEmail == "khangnguyen282002@gmail.com" && adminPassword == "admin1234" ) {
+    if (adminEmail == "admin@gmail.com" && adminPassword == "admin1234" ) {
     return this.afAuth
       .signInWithEmailAndPassword(adminEmail, adminPassword)
       .then((result) => {

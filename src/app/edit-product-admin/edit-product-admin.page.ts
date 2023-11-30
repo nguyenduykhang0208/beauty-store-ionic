@@ -34,6 +34,7 @@ export class EditProductAdminPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getCategories();
     this.getProductById(this.id);
   }
 
@@ -158,4 +159,28 @@ export class EditProductAdminPage implements OnInit {
       })
       .then(toastData => toastData.present());
     }
+  async getCategories() {
+    let loader = await this.loadingCtrl.create({
+      message: 'Please wait...'
+    });
+    loader.present();
+    try {
+      this.firestore
+          .collection('categories')
+          .snapshotChanges()
+          .subscribe((data) => {
+            this.categories = data.map((e) => {
+              return {
+                id: e.payload.doc.id,
+                name: e.payload.doc.data()['name'],
+                image: e.payload.doc.data()['image']
+              };
+            });
+            this.product.category = this.categories?.[0]?.name || ''; // Set to the first category name or an empty string
+            loader.dismiss();
+          });
+    } catch (e) {
+      this.showToast(e);
+    }
+  }
 }
