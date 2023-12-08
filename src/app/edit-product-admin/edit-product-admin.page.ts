@@ -106,7 +106,8 @@ export class EditProductAdminPage implements OnInit {
               text: 'Yes',
               handler: () => {
                 this.firestore.doc("products/" + this.id).update(product);
-                this.firestore.doc("products/" + this.id).update({filepath: this.fb});
+                if(this.fb)
+                  this.firestore.doc("products/" + this.id).update({filepath: this.fb});
                 this.navCtrl.navigateRoot("/listproducts");
                 this.showToast("Products Updated!");
               }
